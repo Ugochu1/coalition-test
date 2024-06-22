@@ -1,0 +1,33 @@
+#parent {
+  padding: var(--dynamic-20px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--dynamic-16px);
+}
+
+#resultsDisplay {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.resultRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--dynamic-11px) var(--dynamic-16px);
+}
+
+.resultRow:hover {
+  background: #F6F7F8;
+  cursor: pointer;
+}
+
+.resultRow div {
+  font-size: var(--dynamic-13px);
+}
+
+.resultRow img {
+  width: var(--dynamic-20px);
+  height: var(--dynamic-20px);
+}

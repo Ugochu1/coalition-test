@@ -1,0 +1,191 @@
+#patientsView {
+  display: flex;
+  position: relative;
+  column-gap: var(--dynamic-32px);
+  align-items: self-start;
+}
+
+#patientsColumn {
+  --margin: 32px;
+  --width: 367px;
+  --top: 122px;
+  margin-top: var(--margin);
+  min-width: var(--width);
+  background-color: var(--unnamed-color-ffffff);
+  padding: 0 0 20px 0;
+  height: calc(100vh - var(--top) - var(--dynamic-18px));
+  overflow: hidden;
+  position: sticky;
+  top: var(--top);
+}
+
+#patientsHeader {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: var(--dynamic-20px) var(--dynamic-20px) var(--dynamic-26px) var(--dynamic-20px);
+}
+
+#patientsListContainer {
+  --offset: var(--dynamic-48px);
+  overflow: auto;
+  height: calc(100% - var(--offset));
+}
+
+.patientItem {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: var(--dynamic-16px) var(--dynamic-20px);
+  cursor: pointer;
+}
+
+.patientItem.active {
+  background: var(--activestate_bg_2);
+}
+
+.patientItem #details {
+  display: flex;
+  align-items: center;
+  column-gap: var(--dynamic-12px);
+}
+
+.patientItem #details img {
+  aspect-ratio: 1/1;
+  height: var(--dynamic-48px);
+}
+
+#detailDisplay {
+  gap: var(--dynamic-32px);
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  align-items: flex-start;
+}
+
+#detailDisplay #firstCompartment {
+  --margin: 32px;
+  --dynamic-766px: clamp(calc(var(--scaling-factor) * 766px), calc((766/var(--design-screen)) * 100vw) , 766px);
+  flex: 2 0 min(var(--dynamic-766px), 100%);
+  margin-top: var(--margin);
+  display: flex;
+  flex-direction: column;
+  gap: var(--dynamic-32px);
+}
+
+#detailDisplay #firstCompartment > * {
+  background: var(--unnamed-color-ffffff);
+  padding: var(--dynamic-20px);
+}
+
+#detailDisplay #secondCompartment {
+  --top: 18px;
+  --dynamic-367px: clamp(calc(var(--scaling-factor) * 367px), calc((367/var(--design-screen)) * 100vw) , 367px);
+  flex: 1 0 min(var(--dynamic-367px), 100%);
+  margin-top: var(--top);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--dynamic-32px);
+  align-items: flex-start;
+}
+
+#detailDisplay #secondCompartment > * {
+  background-color: var(--unnamed-color-ffffff);
+}
+
+#detailDisplay #secondCompartment > *:first-child {
+  flex: 3 0 min(367px, 100%);
+}
+
+#detailDisplay #secondCompartment > *:last-child {
+  flex: 1 0 min(220px, 100%);
+}
+
+@media (max-width: 1440px) {
+  #patientsColumn {
+    --top: 106px;
+    margin-top: calc(var(--scaling-factor) * var(--margin));
+    min-width: calc(var(--scaling-factor) * var(--width));
+  }
+  #patientsListContainer {
+    --offset: 42px;
+  }
+  #detailDisplay #firstCompartment {
+    margin-top: calc(var(--scaling-factor) * var(--margin));
+  }
+}
+
+@media (max-width: 1348px) {
+  #detailDisplay #secondCompartment {
+    --top: 0px;
+  }
+}
+
+@media (max-width: 1000px) {
+  #patientsView {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #patientsColumn {
+    --top: 54px;
+    width: 100%;
+    height: auto;
+    padding-bottom: 1px;
+    position: static;
+  }
+
+  #patientsHeader {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  #patientsListContainer {
+    height: auto;
+  }
+
+  #patientsListContainer ul {
+    display: flex;
+    white-space: no-wrap;
+  }
+
+  .patientItem #details {
+    flex-direction: column;
+    row-gap: 5px;
+  }
+
+  .patientItem.active {
+    background: inherit;
+  }
+
+  .patientItem.active #details img {
+    border: 2px solid #01F0D0;
+  }
+
+  .patientItem #details img {
+    height: 75px;
+    border-radius: 50%;
+    position: relative;
+    padding: 2px;
+    z-index: 1;
+  }
+
+  #userSpecifics {
+    width: max-content;
+    text-align: center;
+  }
+
+  #more {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  #patientsColumn {
+    margin-top: 0;
+    border-radius: 0;
+  }
+  #detailDisplay #secondCompartment > *:last-child {
+    flex-basis: min(300px, 100%);
+  }
+}

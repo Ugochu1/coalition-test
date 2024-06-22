@@ -1,0 +1,20 @@
+#reportContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dynamic-20px);
+}
+
+#chartContainer {
+  --dynamic-298px: clamp(var(--scaling-factor) * 298px, calc((298/var(--design-screen)) * 100vw), 298px);
+  min-height: var(--dynamic-298px);
+  background: #F4F0FE;
+  border-radius: 12px;
+  padding: var(--dynamic-16px);
+  overflow: hidden;
+}
+
+#measurements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--dynamic-21px);
+}

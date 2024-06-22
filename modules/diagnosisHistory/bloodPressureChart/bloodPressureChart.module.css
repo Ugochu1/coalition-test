@@ -1,0 +1,73 @@
+#parent {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--dynamic-16px);
+}
+
+#mainChart {
+  flex: 2 0 min(400px, 100%);
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  gap: var(--dynamic-20px);
+}
+
+#mainChartHeader {
+  display: flex;
+  justify-content: space-between;
+  width: 92%;
+}
+
+#chart {
+  flex: 1;
+  min-height: 223px;
+  overflow: hidden;
+}
+
+#latestReadings {
+  flex: 1 0 min(150px, 100%);
+}
+
+.bloodPressureReading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dynamic-8px);
+  min-width: 149px;
+}
+
+.bloodPressureReading:first-child {
+  padding-bottom: var(--dynamic-16px);
+  border-bottom: 1px solid var(--unnamed-color-cbc8d4)
+}
+
+.bloodPressureReading:last-child {
+  padding-top: var(--dynamic-16px);
+}
+
+.levels {
+  display: flex;
+  align-items: center;
+  gap: var(--dynamic-8px);
+}
+
+.header {
+  font-size: var(--dynamic-14px);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.header span {
+  --dimension: var(--dynamic-13px);
+  height: var(--dimension);
+  width: var(--dimension);
+  display: block;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+.value {
+  font-size: var(--dynamic-22px);
+  font-weight: 600;
+}

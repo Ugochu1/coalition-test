@@ -1,0 +1,16 @@
+#cardBody {
+  --dynamic-228px: clamp(var(--scaling-factor) * 228px, calc((228/var(--design-screen)) * 100vw), 228px);
+  padding: var(--dynamic-16px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--dynamic-16px);
+  border-radius: var(--dynamic-12px);
+  align-items: flex-start;
+  flex: 1 0 var(--dynamic-228px);
+}
+
+img {
+  --dynamic-96px: clamp(var(--scaling-factor) * 96px, calc((96/var(--design-screen)) * 100vw), 96px);
+  aspect-ratio: 1/1;
+  height: var(--dynamic-96px);
+}

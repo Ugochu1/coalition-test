@@ -1,0 +1,212 @@
+nav {
+  --paddingTD: 12px;
+  --paddingLR: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #FFFFFF;
+  border-radius: 70px;
+  padding: var(--paddingTD) var(--paddingLR);
+  position: sticky;
+  top: var(--dynamic-18px);
+  z-index: 10;
+}
+
+#logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#logoContainer button {
+  display: none;
+}
+
+#logoContainer #more {
+  height: 17px;
+  width: 18px;
+}
+
+#logo {
+  --width: 211px;
+  --height: 48px;
+  width: var(--width);
+  height: var(--height);
+}
+
+.navLinksContainer {
+  --column-gap: 16px;
+  display: flex;
+  column-gap: var(--column-gap);
+}
+
+.navigationItem {
+  --paddingTD: 10px;
+  --paddingLR: 14px;
+  --column-gap: 9px;
+  display: flex;
+  align-items: center;
+  column-gap: var(--column-gap);
+  padding: var(--paddingTD) var(--paddingLR);
+  border-radius: 41px;
+}
+
+.navigationItem.active {
+  background-color: #01F0D0;
+}
+
+#profile_controls {
+  display: flex;
+  column-gap: 15px;
+  align-items: center;
+}
+
+#user_data {
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+}
+
+#avatar {
+  --height: 44px;
+  height: var(--height);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+}
+
+.vertical_line {
+  --height: 44px;
+  height: calc(var(--scaling-factor) * var(--height));
+  width: 1px;
+  background: lightgray;
+  display: block;
+}
+
+#extra_options {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+@media (max-width: 1440px) {
+  nav,
+  .navigationItem {
+    padding: calc(var(--scaling-factor * --paddingTD)) calc(var(--scaling-factor * --paddingLR))
+  }
+
+  #logo {
+    width: calc(var(--scaling-factor) * var(--width));
+    height: calc(var(--scaling-factor) * var(--height));
+  }
+
+  .navLinksContainer,
+  .navigationItem {
+    column-gap: calc(var(--scaling-factor) * var(--column-gap));
+  }
+
+  #avatar {
+    height: calc(var(--height) * var(--scaling-factor));
+  }
+}
+
+/* tab and phone responsiveness */
+@media (max-width: 1180px) {
+  #logoContainer {
+    flex: 1;
+  }
+
+  nav {
+    display: block;
+    border-radius: 40px;
+  }
+
+  .navigationItem {
+    --paddingTD: 12px;
+  }
+
+  .vertical_line {
+    display: none;
+  }
+
+  #user_data {
+    padding: 5px 0;
+  }
+
+  #profile_controls {
+    justify-content: space-between;
+  }
+
+  .navLinksContainer {
+    display: block;
+    background: none;
+    padding: var(--dynamic-16px) 0;
+  }
+
+  .navLinksParent {
+    transition: grid-template-rows 200ms linear;
+  }
+
+  .navLinksParent[data-state="opened"],
+  .profile_parent[data-state="opened"] {
+    display: grid;
+    animation: slideOpen 200ms forwards linear;
+  }
+
+  .navLinksParent[data-state="closing"],
+  .profile_parent[data-state="closing"] {
+    display: grid;
+    animation: slideClose 200ms forwards linear;
+  }
+
+  .navLinksParent[data-state="closed"],
+  .profile_parent[data-state="closed"] {
+    display: none;
+  }
+
+  .navLinksContainer,
+  #profile_controls {
+    overflow: hidden;
+  }
+
+  #logoContainer button {
+    display: block;
+  }
+}
+
+@keyframes slideOpen {
+  0% {
+    grid-template-rows: 0fr;
+  }
+  100% {
+    grid-template-rows: 1fr;
+  }
+}
+
+@keyframes slideClose {
+  100% {
+    grid-template-rows: 0fr;
+  }
+  0% {
+    grid-template-rows: 1fr;
+  }
+}
+
+/* phone responsiveness */
+@media (max-width: 680px) {
+  nav {
+    --paddingTD: 7px;
+    --paddingLR: 12px;
+    margin: 0;
+    border-radius: 0;
+    top: 0;
+  }
+
+  #logo {
+    aspect-ratio: initial;
+    width: 150px;
+  }
+
+  .navigationItem {
+    --paddingTD: 10px;
+  }
+}

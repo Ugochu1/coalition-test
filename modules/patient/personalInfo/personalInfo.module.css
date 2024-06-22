@@ -1,0 +1,57 @@
+#parent {
+  padding: var(--dynamic-32px) var(--dynamic-20px);
+}
+
+#infoContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--dynamic-32px);
+}
+
+#nameInfo {
+  flex: 1 0 min(200px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--dynamic-24px);
+}
+
+#nameInfo img {
+  --dynamic-200px: clamp(var(--scaling-factor) * 200px, calc((200/var(--design-screen)) * 100vw), 200px);
+  width: var(--dynamic-200px);
+  height: var(--dynamic-200px);
+  border-radius: 50%;
+}
+
+#moreInfo {
+  flex: 2 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--dynamic-24px);
+}
+
+.infoRow {
+  display: flex;
+  gap: var(--dynamic-16px);
+  align-items: center;
+}
+
+.icon {
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+}
+
+#buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--dynamic-40px);
+  flex: 1;
+}
+
+#buttonContainer button {
+  padding: var(--dynamic-11px) var(--dynamic-40px);
+  border-radius: var(--dynamic-41px);
+  background: var(--activestate_bg_1);
+  justify-self: center;
+}
